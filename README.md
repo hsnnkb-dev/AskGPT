@@ -48,7 +48,7 @@ Within your terminal input the following commands.
 These instructions should allow you to connect your API key and run the project locally.
 You can find your API key on your personal OpenAI account page.
 1. Create environment variable files `.env` the root of the project.
-2. Within `.env` write "OPENAI-API-KEY=<YOUR-API-KEY-HERE>" (No Quotations and brackets).
+2. Within `.env` write "OPENAI-API-KEY=YOUR-API-KEY-HERE" (No Quotations and brackets).
 3. Ensure that `.env` is present in the `.gitignore` file.
 
 ### Running the Project 🏃🏻
