@@ -1,6 +1,7 @@
 package dev.hsn;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,10 +26,12 @@ public class AskGPT {
         ChatGPTRequest chatGptRequest = new ChatGPTRequest( "text-davinci-001", prompt, 1, 100);
         String input = objectMapper.writeValueAsString(chatGptRequest);
 
+        Dotenv dotenv = Dotenv.load();
+
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.openai.com/v1/completions"))
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer " + dotenv.get("OPENAI-API-KEY"))
                 .POST(HttpRequest.BodyPublishers.ofString(input))
                 .build();
 
